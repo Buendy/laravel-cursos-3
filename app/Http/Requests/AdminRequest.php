@@ -3,10 +3,9 @@
 namespace App\Http\Requests;
 
 use App\Role;
-use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CourseRequest extends FormRequest
+class AdminRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,7 +14,7 @@ class CourseRequest extends FormRequest
      */
     public function authorize()
     {
-        return auth()->user()->role_id === Role::TEACHER;
+        return auth()->user()->role_id === Role::ADMIN;
     }
 
     /**
@@ -41,7 +40,7 @@ class CourseRequest extends FormRequest
                 ];
             case 'PUT':
                 return [
-                    'name' => 'required|min:5',
+
                     'description' => 'required|min:30',
                     'level_id' => 'required | exists:levels,id',
                     'category_id' => 'required | exists:categories,id',

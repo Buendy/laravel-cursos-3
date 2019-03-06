@@ -167,7 +167,6 @@
 
 @push('scripts')
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-
     <script>
         let dt;
         let modal = jQuery("#appModal");

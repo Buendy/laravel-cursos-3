@@ -90,6 +90,9 @@ return [
         'index' => [
             'jumbotron_title' => 'Update your profile',
             'form_header' => 'Update your profile',
+            'form_header_edit' => 'Edit user profile',
+            'name' => 'Name',
+            'last_name' => 'Last name',
             'email' => 'Email',
             'password' => 'Password',
             'password_confirmation' => 'Confirm your password',
@@ -116,6 +119,21 @@ return [
         ],
         'actions' => [
             'title' => 'Send message',
+        ],
+    ],
+    'mail' => [
+        'new_student' => [
+            'subject' => 'You have a new student in your course',
+            'title' => 'You have a new student in your course!',
+            'body' => 'The student :student has been inscribed in your course :course, CONGRATULATIONS',
+            'button' => 'Go to course',
+            'thanks' => 'Thank you',
+        ],
+        'message_to_student' => [
+            'subject' => 'Message from :teacher',
+            'title' => 'New message',
+            'body' => 'Go to :app',
+
         ],
     ],
     'teachers' => [

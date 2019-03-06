@@ -7,6 +7,8 @@ use App\Mail\NewStudentInCourse;
 use App\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Validation\Rule;
+
 class CourseController extends Controller
 {
     public function show(Course $course)
@@ -92,13 +94,14 @@ class CourseController extends Controller
 
     public function update(CourseRequest $request, Course $course)
     {
+        $this->validate($request, [ 'name' => Rule::unique('courses', 'name')->ignore($course->id)]);
         if ($request->hasFile('picture')) {
             Storage::delete('courses/' . $course->picture);
             $picture = Helper::uploadFile('picture', 'courses');
             $request->merge(['picture' => $picture]);
         }
         $course->fill($request->input())->save();
-        return back()->with('message', ['success', __('app.courses.update_message')]);
+        return redirect()->route('teacher.courses')->with('message', ['success', __('app.courses.update_message')]);
     }
 
     public function destroy(Course $course)

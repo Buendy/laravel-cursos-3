@@ -25,11 +25,11 @@ class UserTableSeeder extends Seeder
             factory(Student::class, 1)->create(['user_id' => $user->id]);
         });
 
-        factory(User::class, 50)->create()->each(function(User $user){
+        factory(User::class, 50)->create(['role_id' => \App\Role::STUDENT])->each(function(User $user){
             factory(Student::class, 1)->create(['user_id' => $user->id]);
         });
 
-        factory(User::class, 10)->create()->each(function(User $user){
+        factory(User::class, 10)->create(['role_id' => \App\Role::TEACHER])->each(function(User $user){
             factory(Student::class, 1)->create(['user_id' => $user->id]);
             factory(Teacher::class, 1 )->create(['user_id' => $user->id]);
         });

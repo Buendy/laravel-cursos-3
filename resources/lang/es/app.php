@@ -95,6 +95,9 @@ return [
         'index' => [
             'jumbotron_title' => 'Configura tu perfil',
             'form_header' => 'Actualiza tus datos',
+            'form_header_edit' => 'Editar perfil de usuario',
+            'name' => 'Nombre',
+            'last_name' => 'Apellidos',
             'email' => 'Correo electrónico',
             'password' => 'Contraseña',
             'password_confirmation' => 'Repite la contraseña',

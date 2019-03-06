@@ -38,7 +38,7 @@ class MessageToStudent extends Mailable
         return $this->subject(__('app.mail.message_to_student.subject',[
             'teacher' => $this->teacher
         ]))
-            ->markdown('email.message_to-student')
+            ->markdown('emails.message_to_student')
             ->with('text_message', $this->text_message);
     }
 }

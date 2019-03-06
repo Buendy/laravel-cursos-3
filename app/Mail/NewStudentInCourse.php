@@ -33,9 +33,10 @@ class NewStudentInCourse extends Mailable
      */
     public function build()
     {
-        return $this->subject(__('app.mail.new_student'))
+        return $this->subject(__('app.mail.new_student.subject'))
             ->markdown('emails.new_student_in_course')
             ->with('course', $this->course)
             ->with('student', $this->student_name);
+
     }
 }

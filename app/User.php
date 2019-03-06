@@ -77,6 +77,24 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public static $rules = [
+        'name' => 'required | min:3 | max:20',
+        'last_name' => 'required | min:5 | max:20',
+        'email' => 'required | email | unique:users,email',
+    ];
+
+    public static $messages = [
+        'name.required' => 'El nombre es obligatoriooo',
+        'name.min' => 'El campo nombre es demasiado corto',
+        'name.max' => 'El campo nombre es demasiado largo',
+        'last_name.required' => 'Los apellidos son obligatorios',
+        'last_name.min' => 'Los apellidos son cortos',
+        'last_name.max' => 'Los apellidos son demasiado largos',
+        'email.required' => 'El email es obligatorio',
+        'email.email' => 'El email no es correcto',
+        'email.unique' => 'El email ya está en uso',
+    ];
+
     public function role()
     {
         return $this->belongsTo(Role::class);

@@ -36,7 +36,7 @@ class Student extends Model
     public function user()
     {
         return $this->belongsTo(User::class)
-            ->select('id', 'role_id', 'name' , 'email');
+            ->select('id', 'role_id', 'last_name', 'name' , 'email');
     }
 
     public function getCoursesFormattedAttribute()

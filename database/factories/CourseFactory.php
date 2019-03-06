@@ -8,7 +8,7 @@ use App\Course;
 
 $factory->define(App\Course::class, function (Faker $faker) {
 
-    $name = $faker->sentence;
+    $name = $faker->unique()->sentence;
     $status = $faker->randomElement([Course::PUBLISHED, Course::PENDING, Course::REJECTED]);
 
     return [

@@ -2,23 +2,22 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Student;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class StudentController extends Controller
+class TeacherController extends Controller
 {
     public function index()
     {
-        $students = User::where('role_id', '3')->paginate(10);
-        //dd($students);
-        return view('admin.students.index', compact('students'));
+        $teachers = User::where('role_id', '2')->paginate(10);
+        //dd($teachers);
+        return view('admin.teachers.index', compact('teachers'));
     }
 
     public function edit(user $user)
     {
-        return view('admin.students.edit', compact('user'));
+        return view('admin.teachers.edit', compact('user'));
     }
 
     public function update(Request $request, User $user)
@@ -37,4 +36,5 @@ class StudentController extends Controller
         $user->delete();
         return back();
     }
+
 }

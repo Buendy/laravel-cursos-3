@@ -17,13 +17,13 @@ class CreateCoursesTable extends Migration
             $table->increments('id');
 
             $table->unsignedInteger('teacher_id');
-            $table->foreign('teacher_id')->references('id')->on('teachers');
+            $table->foreign('teacher_id')->references('id')->on('teachers')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->unsignedInteger('level_id');
             $table->foreign('level_id')->references('id')->on('levels');
 
-            $table->string('name');
+            $table->string('name')->unique();
             $table->text('description');
             $table->string('slug');
             $table->string('picture')->nullable();
